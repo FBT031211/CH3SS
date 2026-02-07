@@ -1,4 +1,4 @@
-# ♟️ Chess Analyzer Pro (chss3)
+# ♟️ CH3SS
 Aplikasi analisis catur menggunakan **Stockfish 18** dengan fitur evaluasi akurasi real-time.
 
 ### ✨ Fitur Utama:
