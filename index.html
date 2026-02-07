@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch3ss</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>CH3SS<span id="engine-status">Memuat Stockfish 18...</span></h1>
+    </header>
+
+    <div class="main-layout">
+        <div class="board-area">
+            <div class="board-container">
+                <div id="myBoard"></div>
+                <div class="eval-bar-container">
+                    <div id="eval-bar" class="eval-bar-fill"></div>
+                    <span id="eval-score">0.0</span>
+                </div>
+            </div>
+            
+            <div class="navigation-row">
+                <button id="btnStart" title="Awal">«</button>
+                <button id="btnPrev" title="Mundur">‹</button>
+                <button id="btnNext" title="Maju">›</button>
+                <button id="btnEnd" title="Akhir">»</button>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="panel">
+                <h3>Analisis & Akurasi</h3>
+                <div id="status" class="status-text">Siap Bermain</div>
+                <div id="move-quality" class="move-quality-badge">SIAP</div>
+                <div id="pgn" class="pgn-display"></div>
+            </div>
+
+            <div class="panel engine-panel">
+                <h3>Saran Stockfish 18</h3>
+                <div id="best-move-algebraic" class="best-move-text">Saran: -</div>
+                <div id="best-move-raw" style="font-size: 0.7rem; color: #555; margin-top: 5px;">Mtd: -</div>
+            </div>
+
+            <div class="panel">
+                <h3>Kontrol Game</h3>
+                <div class="control-grid">
+                    <button id="btnNewGame" class="btn primary">Game Baru (vs AI)</button>
+                    <button id="btnFlip" class="btn">Balik Papan</button>
+                    <button id="btnTakeback" class="btn warning">Takeback</button>
+                </div>
+                
+                <div class="select-group">
+                    <label>Main Sebagai:</label>
+                    <select id="playerColor">
+                        <option value="white">Putih</option>
+                        <option value="black">Hitam</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Input Posisi (FEN/PGN)</h3>
+                <input type="text" id="fenInput" placeholder="Masukkan FEN..." class="input-text">
+                <button id="btnLoadFen" class="btn secondary">Muat FEN</button>
+                <textarea id="pgnInput" placeholder="Masukkan PGN..." class="input-text" rows="3" style="margin-top:10px; font-family: monospace;"></textarea>
+                <button id="btnLoadPgn" class="btn secondary">Muat PGN</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
